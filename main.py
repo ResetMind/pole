@@ -1,8 +1,9 @@
 import questions
 
-a = tuple(questions.answer)
+qa = questions.get_question()
+a = tuple(qa[1])
 aa = [""] * len(a)
-q = questions.question
+q = qa[0]
 print(q + "\n" + str(len(aa)) + " букв\n")
 
 
@@ -23,6 +24,9 @@ def fill_word(indices):
 
 while tuple(aa) != a:
     letter = input("Введите букву: ").lower()
+    if aa.count(letter) != 0:
+        print("Такая буква уже есть")
+        continue
     ind = entry_indices(letter)
     if len(ind) > 0:
         fill_word(ind)
