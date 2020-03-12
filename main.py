@@ -1,10 +1,9 @@
 import questions
 
-q = questions.question
-print(q)
 a = tuple(questions.answer)
-print(a)
 aa = [""] * len(a)
+q = questions.question
+print(q + "\n" + str(len(aa)) + " букв\n")
 
 
 def entry_indices(s):
@@ -23,10 +22,10 @@ def fill_word(indices):
 
 
 while tuple(aa) != a:
-    letter = str(input("Введите букву: "))
+    letter = input("Введите букву: ").lower()
     ind = entry_indices(letter)
     if len(ind) > 0:
         fill_word(ind)
     else:
         print("Неверная буква!")
-print("Поздравляем! Вы угадали слово")
+print("\nПоздравляем! Вы угадали слово!")
